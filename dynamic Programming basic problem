@@ -1,0 +1,25 @@
+
+#include <iostream>
+#include <vector>
+#define mod 1000000007
+using namespace std;
+
+int main()
+{
+    long long n,i,x;
+    cin>>n;
+    vector <long long> dp(n+1,0);
+    dp[0]=1;
+    for(i=1;i<=n;i++)
+    {
+        for(x=1;x<=6;x++)
+        {
+            if(x>i)
+            break;
+            else
+            dp[i]=(dp[i]+dp[i-x])%mod;
+        }
+    }
+    cout<<dp[n];
+    return 0;
+}
